@@ -13,9 +13,19 @@ import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export const metadata: Metadata = {
-  title: "School Services — Drama Consultancy, Events & Teacher Recruitment",
+  title: "Drama Services for Schools — Consultancy, Events & Competitions | Dramawale",
   description:
-    "Dramawale partners with schools to offer drama consultancy, event management, teacher recruitment, and prestigious competitions like Nukkad Natak and Mime Festivals.",
+    "Dramawale partners with schools across India to offer drama consultancy, event management, certified drama teacher recruitment, and signature competitions like Nukkad Natak & Mime Festivals. NEP-aligned performing arts solutions for schools in Maharashtra and beyond.",
+  alternates: {
+    canonical: "https://www.dramawale.com/school-services",
+  },
+  keywords: ["drama consultancy for schools", "school drama events India", "Nukkad Natak competition", "drama teacher recruitment", "school performing arts programs", "NEP drama schools Maharashtra"],
+  openGraph: {
+    title: "Drama Services for Schools — Dramawale",
+    description: "Drama consultancy, event management, teacher recruitment & competitions for schools across India.",
+    url: "https://www.dramawale.com/school-services",
+    type: "website",
+  },
 };
 
 const SERVICES = [

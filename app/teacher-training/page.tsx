@@ -6,9 +6,19 @@ import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Teacher Training — Certified Drama Educator (CDE) Programme",
+  title: "Certified Drama Educator (CDE) Programme — Teacher Training | Dramawale",
   description:
-    "Become a Certified Drama Educator with Dramawale's CDE programme. Professional training in drama pedagogy, curriculum design, and performance coaching.",
+    "Become a Certified Drama Educator (CDE) with Dramawale's 6-month professional teacher training programme. India's most rigorous drama pedagogy certification — get listed on our school placement network. Based in Nashik, Maharashtra.",
+  alternates: {
+    canonical: "https://www.dramawale.com/teacher-training",
+  },
+  keywords: ["drama teacher training India", "Certified Drama Educator", "CDE certification", "drama pedagogy course", "theatre teacher certification Maharashtra", "drama educator placement"],
+  openGraph: {
+    title: "Certified Drama Educator (CDE) Programme — Dramawale",
+    description: "India's most rigorous professional drama teacher certification. 6 months, 200+ training hours, 100% placement support.",
+    url: "https://www.dramawale.com/teacher-training",
+    type: "website",
+  },
 };
 
 const ELIGIBILITY = [

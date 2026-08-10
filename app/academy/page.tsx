@@ -6,9 +6,19 @@ import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Academy — Certification Courses in Drama & Acting",
+  title: "Drama & Acting Certification Courses — Dramawale Academy",
   description:
-    "Join Dramawale's three-tier certification programme: Foundations of Drama, Advanced Acting, and Actor's Siddhi. NEP-aligned, industry-ready training.",
+    "Join Dramawale Academy's three-tier certification programme in Nashik: Foundations of Drama (3 months), Advanced Acting (6 months), and Actor's Siddhi (12 months). NEP-aligned, industry-ready acting training for students across India.",
+  alternates: {
+    canonical: "https://www.dramawale.com/academy",
+  },
+  keywords: ["acting courses Nashik", "drama certification India", "theatre training Maharashtra", "NEP drama curriculum", "acting classes for students", "Dramawale Academy"],
+  openGraph: {
+    title: "Drama & Acting Certification Courses — Dramawale Academy",
+    description: "Three-tier certified drama training: Foundations, Advanced Acting, and Actor's Siddhi. NEP-aligned, industry-ready.",
+    url: "https://www.dramawale.com/academy",
+    type: "website",
+  },
 };
 
 const LEVELS = [

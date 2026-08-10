@@ -5,9 +5,19 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "KATHASANG — Social Impact Fellowship for Underprivileged Children",
+  title: "KATHASANG — Drama Fellowship for Underprivileged Children | Dramawale",
   description:
-    "KATHASANG is Dramawale's social impact fellowship bringing theatre, storytelling, and drama to underprivileged and tribal children across India.",
+    "KATHASANG is Dramawale's social impact fellowship bringing theatre, storytelling, and drama to underprivileged and tribal children across India. 500+ children reached, 12 communities served, 8 states covered.",
+  alternates: {
+    canonical: "https://www.dramawale.com/kathasang",
+  },
+  keywords: ["drama for underprivileged children", "KATHASANG fellowship", "theatre social impact India", "drama outreach program", "storytelling tribal children", "performing arts NGO India"],
+  openGraph: {
+    title: "KATHASANG — Drama Fellowship for Underprivileged Children",
+    description: "Bringing theatre, storytelling, and drama to underprivileged children across India. 500+ children reached in 8 states.",
+    url: "https://www.dramawale.com/kathasang",
+    type: "website",
+  },
 };
 
 const IMPACT_STATS = [
