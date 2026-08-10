@@ -26,9 +26,9 @@ export const FOOTER_PROGRAM_LINKS = [
 
 export const CONTACT_INFO = {
   address: "Mumbai, Maharashtra, India",
-  email: "hello@dramawale.in",
-  phone: "+91 99999 99999",
-  whatsapp: "919999999999", // without + for wa.me link
+  email: "hello@dramawale.com",
+  phone: "+91 96075 71366",
+  whatsapp: "919607571366", // without + for wa.me link
   whatsappMessage: "Hi Dramawale! I'd like to know more about your programs.",
 };
 
