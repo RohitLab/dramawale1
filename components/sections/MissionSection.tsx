@@ -1,54 +1,97 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Quote } from "lucide-react";
-import { AnimatedSection } from "@/components/AnimatedSection";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 export function MissionSection() {
   return (
-    <section className="py-24 bg-[#F0E9DF]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
+    <section className="relative py-0 overflow-hidden bg-[#1F2340] min-h-[520px] flex items-center">
+      {/* ── Kathakali dancer background ── */}
+      <div className="absolute inset-0">
+        <Image
+          src="/mission-kathakali.png"
+          alt="Illuminated Kathakali dancer — Dramawale mission"
+          fill
+          quality={85}
+          className="object-cover object-left"
+          sizes="100vw"
+        />
+      </div>
+
+      {/* ── Right-side text gradient ── */}
+      <div className="absolute inset-0 bg-gradient-to-l from-[#1F2340]/95 via-[#1F2340]/80 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1F2340]/60 via-transparent to-transparent pointer-events-none" />
+
+      {/* ── Gold border accents ── */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#C9A24B]/50 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#C9A24B]/50 to-transparent" />
+
+      {/* ── Content: text on RIGHT open space ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+        <div className="ml-auto max-w-xl">
+
           {/* Pull quote */}
-          <AnimatedSection>
-            <div className="relative inline-block mb-10">
-              <Quote className="w-12 h-12 text-[#7C1D2F]/20 absolute -top-4 -left-6" />
-              <blockquote className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold italic text-[#7C1D2F] leading-snug">
-                Drama is the language of the soul.
-              </blockquote>
-            </div>
-          </AnimatedSection>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative mb-8"
+          >
+            <Quote className="w-10 h-10 text-[#C9A24B]/30 absolute -top-3 -left-4" />
+            <blockquote className="font-display text-2xl sm:text-3xl font-bold italic text-[#E8A33D] leading-snug pl-4">
+              Drama is the language of the soul.
+            </blockquote>
+          </motion.div>
 
-          <AnimatedSection delay={0.1}>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1C1C1C] mb-6 leading-tight">
-              Drama is not an extracurricular.
-              <br />
-              <span className="text-[#A63245]">It is education.</span>
-            </h2>
-          </AnimatedSection>
+          {/* Headline */}
+          <motion.h2
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.12 }}
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+          >
+            Drama is not an extracurricular.
+            <br />
+            <span className="text-[#E8A33D]">It is education.</span>
+          </motion.h2>
 
-          <AnimatedSection delay={0.2}>
-            <p className="text-[#4A4A4A] text-lg leading-relaxed mb-10">
-              At Dramawale, we believe the performing arts are foundational to holistic
-              development. We are building India&apos;s most comprehensive performing arts
-              education ecosystem — one that bridges schools, students, educators, and
-              communities through the transformative power of theatre.
-            </p>
-            <Button asChild size="lg" className="group">
+          {/* Body */}
+          <motion.p
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.22 }}
+            className="text-white/75 text-lg leading-relaxed mb-10"
+          >
+            At Dramawale, we believe the performing arts are foundational to holistic
+            development. We are building India&apos;s most comprehensive performing arts
+            education ecosystem — one that bridges schools, students, educators, and
+            communities through the transformative power of theatre.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.32 }}
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-[#E8A33D] hover:bg-[#C9A24B] text-[#1F2340] font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group"
+            >
               <Link href="/kathasang">
                 Learn About Our Story
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-          </AnimatedSection>
-        </div>
+          </motion.div>
 
-        {/* Decorative divider */}
-        <div className="mt-16 flex items-center justify-center gap-4">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#E2D8CC]" />
-          <div className="w-2 h-2 rounded-full bg-[#7C1D2F]" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#C4623A]" />
-          <div className="w-2 h-2 rounded-full bg-[#7C1D2F]" />
-          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#E2D8CC]" />
         </div>
       </div>
     </section>

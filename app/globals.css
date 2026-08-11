@@ -1,35 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+/* ═══════════════════════════════════════
+   DRAMAWALE — PREMIUM INDIAN THEATRICAL
+   Global Design System
+   ═══════════════════════════════════════ */
+
+/* Fonts: Yatra One (display), Eczar (alt display), Poppins (body) */
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&family=Eczar:wght@400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 
+/* ─── Design Tokens ─── */
 :root {
-  --background: #FAF6F0;
-  --foreground: #1C1C1C;
-  --color-maroon: #7C1D2F;
-  --color-burgundy: #A63245;
-  --color-terracotta: #C4623A;
-  --color-cream: #FAF6F0;
-  --color-cream-dark: #F0E9DF;
-  --color-charcoal: #1C1C1C;
-  --color-muted: #4A4A4A;
-  --color-border: #E2D8CC;
+  /* Core palette */
+  --color-maroon:      #7A1F2B;   /* primary — deep curtain maroon */
+  --color-marigold:    #E8A33D;   /* accent — marigold/saffron     */
+  --color-gold:        #C9A24B;   /* secondary — temple gold       */
+  --color-indigo:      #1F2340;   /* dark sections — deep indigo   */
+  --color-ivory:       #FBF6EE;   /* base/light background         */
+
+  /* Extended shades */
+  --color-maroon-dark: #5C1620;
+  --color-maroon-mid:  #A3283A;
+  --color-gold-light:  #F0D08A;
+  --color-indigo-mid:  #2E3560;
+  --color-charcoal:    #1A1A1A;
+  --color-muted:       #4A4A4A;
+  --color-border:      #E2D4B8;
+
+  /* Semantic */
+  --background: var(--color-ivory);
+  --foreground: var(--color-charcoal);
+
+  /* Typography */
+  --font-display: 'Yatra One', 'Eczar', Georgia, serif;
+  --font-body:    'Poppins', system-ui, sans-serif;
+
+  /* Transitions */
+  --ease-theatrical: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* ─── Tailwind Theme Bridge ─── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-maroon: #7C1D2F;
-  --color-burgundy: #A63245;
-  --color-terracotta: #C4623A;
-  --color-cream: #FAF6F0;
-  --color-cream-dark: #F0E9DF;
-  --color-charcoal: #1C1C1C;
-  --color-muted: #4A4A4A;
-  --color-border: #E2D8CC;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-background:    var(--background);
+  --color-foreground:    var(--foreground);
+  --color-maroon:        #7A1F2B;
+  --color-maroon-dark:   #5C1620;
+  --color-maroon-mid:    #A3283A;
+  --color-marigold:      #E8A33D;
+  --color-gold:          #C9A24B;
+  --color-gold-light:    #F0D08A;
+  --color-indigo:        #1F2340;
+  --color-indigo-mid:    #2E3560;
+  --color-ivory:         #FBF6EE;
+  --color-charcoal:      #1A1A1A;
+  --color-muted:         #4A4A4A;
+  --color-border:        #E2D4B8;
+  --font-display:        'Yatra One', 'Eczar', Georgia, serif;
+  --font-body:           'Poppins', system-ui, sans-serif;
+  --font-sans:           'Poppins', system-ui, sans-serif;
 }
 
-* {
+/* ─── Base Reset ─── */
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -40,23 +70,106 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 .font-display {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-display);
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #EDE4D3; }
+::-webkit-scrollbar-thumb { background: #A3283A; border-radius: 3px; }
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════ */
+
+/* Hero curtain panels */
+@keyframes curtain-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
 }
-::-webkit-scrollbar-track {
-  background: #F0E9DF;
+@keyframes curtain-right {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
 }
-::-webkit-scrollbar-thumb {
-  background: #A63245;
-  border-radius: 3px;
+
+.curtain-left {
+  animation: curtain-left 1.4s var(--ease-theatrical) forwards;
+  animation-delay: 0.4s;
+}
+.curtain-right {
+  animation: curtain-right 1.4s var(--ease-theatrical) forwards;
+  animation-delay: 0.4s;
+}
+
+/* Continuous marquee scroll */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Gold shimmer on cards */
+@keyframes gold-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201,162,75,0.35) 40%,
+    rgba(232,163,61,0.5)  50%,
+    rgba(201,162,75,0.35) 60%,
+    transparent 100%
+  );
+  background-size: 200% auto;
+  animation: gold-shimmer 2.4s linear infinite;
+}
+
+/* Stage-frame card: gold border glow on hover */
+.stage-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s var(--ease-theatrical);
+}
+.stage-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 8px 40px rgba(201, 162, 75, 0.18), 0 2px 12px rgba(122, 31, 43, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Fade-up utility (for non-JS fallback) */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Prefers-reduced-motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .curtain-left,
+  .curtain-right {
+    animation: none;
+    transform: translateX(-100%);
+  }
+  .curtain-right {
+    transform: translateX(100%);
+  }
 }

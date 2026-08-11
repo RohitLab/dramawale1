@@ -1,5 +1,8 @@
-import { Quote } from "lucide-react";
-import { AnimatedSection } from "@/components/AnimatedSection";
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const TESTIMONIALS = [
   {
@@ -8,7 +11,6 @@ const TESTIMONIALS = [
     name: "Priya Sharma",
     role: "Principal, Delhi Public School, Pune",
     initial: "P",
-    color: "#7C1D2F",
   },
   {
     quote:
@@ -16,7 +18,6 @@ const TESTIMONIALS = [
     name: "Arun Mehta",
     role: "CDE Graduate & Drama Teacher, Hyderabad",
     initial: "A",
-    color: "#A63245",
   },
   {
     quote:
@@ -24,66 +25,149 @@ const TESTIMONIALS = [
     name: "Kavitha Nair",
     role: "Parent, Bengaluru",
     initial: "K",
-    color: "#C4623A",
   },
 ];
 
+const SCHOOLS = [
+  "DPS Pune", "Ryan Group", "KV Schools", "Podar Academy",
+  "Orchid IB", "DAV Schools", "Narayana Group", "The Orchid School",
+];
+
 export function TestimonialsSection() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const next = useCallback(() => setActive((a) => (a + 1) % TESTIMONIALS.length), []);
+  const prev = useCallback(() => setActive((a) => (a - 1 + TESTIMONIALS.length) % TESTIMONIALS.length), []);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(next, 4500);
+    return () => clearInterval(id);
+  }, [paused, next]);
+
   return (
-    <section className="py-24 bg-[#FAF6F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-14">
-          <p className="text-[#C4623A] text-sm font-semibold uppercase tracking-widest mb-3">
+    <section className="py-24 bg-[#FBF6EE] relative overflow-hidden">
+      {/* Subtle maroon wash */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 20% 80%, rgba(122,31,43,0.05) 0%, transparent 55%)" }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Heading */}
+        <motion.div
+          className="text-center mb-14"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-[#E8A33D] text-sm font-bold uppercase tracking-widest mb-3">
             What They Say
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1C1C1C]">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#7A1F2B]">
             Stories from Our Community
           </h2>
-        </AnimatedSection>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((t, i) => (
-            <AnimatedSection key={t.name} delay={i * 0.12}>
-              <div className="bg-white rounded-2xl border border-[#E2D8CC] p-8 shadow-sm hover:shadow-lg transition-shadow h-full flex flex-col">
-                <Quote className="w-8 h-8 mb-4 flex-shrink-0" style={{ color: t.color, opacity: 0.3 }} />
-                <p className="text-[#4A4A4A] leading-relaxed italic mb-6 flex-1">
-                  &ldquo;{t.quote}&rdquo;
+        {/* Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+          className="relative max-w-3xl mx-auto"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {/* Card */}
+          <div className="relative min-h-[280px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="stage-card p-10 text-center"
+              >
+                <Quote className="w-10 h-10 text-[#C9A24B]/30 mx-auto mb-5" />
+                <p className="text-[#4A4A4A] text-lg leading-relaxed italic mb-8">
+                  &ldquo;{TESTIMONIALS[active].quote}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-[#F0E9DF]">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                    style={{ backgroundColor: t.color }}
-                  >
-                    {t.initial}
+                <div className="flex items-center justify-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-[#7A1F2B] flex items-center justify-center text-white font-bold text-sm font-display flex-shrink-0">
+                    {TESTIMONIALS[active].initial}
                   </div>
-                  <div>
-                    <p className="font-semibold text-[#1C1C1C] text-sm">{t.name}</p>
-                    <p className="text-[#4A4A4A] text-xs">{t.role}</p>
+                  <div className="text-left">
+                    <p className="font-semibold text-[#1A1A1A] text-sm">{TESTIMONIALS[active].name}</p>
+                    <p className="text-[#4A4A4A] text-xs">{TESTIMONIALS[active].role}</p>
                   </div>
                 </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-        {/* School logos strip placeholder */}
-        <AnimatedSection delay={0.3} className="mt-16 text-center">
-          <p className="text-[#4A4A4A] text-sm mb-6 uppercase tracking-widest font-medium">
+          {/* Controls */}
+          <div className="flex items-center justify-center gap-6 mt-6">
+            <button
+              onClick={prev}
+              aria-label="Previous testimonial"
+              className="w-9 h-9 rounded-full border border-[#E2D4B8] bg-white flex items-center justify-center text-[#7A1F2B] hover:bg-[#7A1F2B] hover:text-white hover:border-[#7A1F2B] transition-all shadow-sm"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <div className="flex gap-2">
+              {TESTIMONIALS.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  className={`rounded-full transition-all ${
+                    i === active
+                      ? "w-6 h-2.5 bg-[#E8A33D]"
+                      : "w-2.5 h-2.5 bg-[#E2D4B8] hover:bg-[#C9A24B]"
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={next}
+              aria-label="Next testimonial"
+              className="w-9 h-9 rounded-full border border-[#E2D4B8] bg-white flex items-center justify-center text-[#7A1F2B] hover:bg-[#7A1F2B] hover:text-white hover:border-[#7A1F2B] transition-all shadow-sm"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </motion.div>
+
+        {/* ── Partner logos marquee ── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-20"
+        >
+          <p className="text-[#4A4A4A] text-sm mb-8 uppercase tracking-widest font-semibold text-center">
             Trusted by schools across India
           </p>
-          <div className="flex items-center justify-center flex-wrap gap-6">
-            {["DPS Pune", "Ryan Group", "KV Schools", "Podar Academy", "Orchid IB"].map(
-              (school) => (
+          <div className="overflow-hidden relative">
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#FBF6EE] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#FBF6EE] to-transparent z-10 pointer-events-none" />
+            <div className="flex animate-marquee gap-8 w-max">
+              {[...SCHOOLS, ...SCHOOLS].map((school, i) => (
                 <span
-                  key={school}
-                  className="text-sm font-semibold text-[#4A4A4A]/60 bg-white border border-[#E2D8CC] px-4 py-2 rounded-full"
+                  key={i}
+                  className="text-sm font-semibold text-[#4A4A4A]/60 bg-white border border-[#E2D4B8] px-5 py-2.5 rounded-full whitespace-nowrap shadow-sm"
                 >
                   {school}
                 </span>
-              )
-            )}
+              ))}
+            </div>
           </div>
-        </AnimatedSection>
+        </motion.div>
       </div>
     </section>
   );

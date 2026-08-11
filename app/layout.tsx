@@ -154,7 +154,7 @@ export default function RootLayout({
         {/* Language */}
         <meta httpEquiv="content-language" content="en-IN" />
       </head>
-      <body className="antialiased bg-[#FAF6F0] min-h-screen flex flex-col">
+      <body className="antialiased bg-[#FBF6EE] min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1 pt-16">{children}</main>
         <Footer />

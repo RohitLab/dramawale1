@@ -12,41 +12,15 @@ interface StatItem {
 }
 
 const STATS: StatItem[] = [
-  {
-    value: "NEP",
-    numericValue: 0,
-    suffix: "",
-    label: "NEP-Aligned Curriculum",
-    prefix: "",
-  },
-  {
-    value: "100",
-    numericValue: 100,
-    suffix: "+",
-    label: "Schools Partnered",
-    prefix: "",
-  },
-  {
-    value: "3",
-    numericValue: 3,
-    suffix: "",
-    label: "Certified Programs",
-    prefix: "",
-  },
+  { value: "NEP", numericValue: 0, suffix: "", label: "NEP-Aligned Curriculum", prefix: "" },
+  { value: "100", numericValue: 100, suffix: "+", label: "Schools Partnered", prefix: "" },
+  { value: "3",   numericValue: 3,   suffix: "",  label: "Certified Programs",  prefix: "" },
 ];
 
 function CountUp({
-  target,
-  suffix,
-  prefix,
-  isText,
-  textValue,
+  target, suffix, prefix, isText, textValue,
 }: {
-  target: number;
-  suffix: string;
-  prefix: string;
-  isText: boolean;
-  textValue: string;
+  target: number; suffix: string; prefix: string; isText: boolean; textValue: string;
 }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -55,16 +29,12 @@ function CountUp({
   useEffect(() => {
     if (!inView || isText) return;
     let start = 0;
-    const duration = 1500;
+    const duration = 1800;
     const step = (target / duration) * 16;
     const timer = setInterval(() => {
       start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
+      if (start >= target) { setCount(target); clearInterval(timer); }
+      else { setCount(Math.floor(start)); }
     }, 16);
     return () => clearInterval(timer);
   }, [inView, target, isText]);
@@ -78,21 +48,27 @@ function CountUp({
 
 export function StatsStrip() {
   return (
-    <section className="bg-[#7C1D2F] py-14">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-14 overflow-hidden bg-[#1F2340]">
+      {/* Gold top/bottom borders */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#C9A24B]/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#C9A24B]/60 to-transparent" />
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 bg-radial-gradient pointer-events-none" style={{
+        background: "radial-gradient(ellipse at center, rgba(122,31,43,0.15) 0%, transparent 70%)"
+      }} />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6">
           {STATS.map((stat, i) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className={`text-center ${
-                i < STATS.length - 1 ? "sm:border-r sm:border-white/20" : ""
-              }`}
+              transition={{ duration: 0.55, delay: i * 0.15 }}
+              className={`text-center ${i < STATS.length - 1 ? "sm:border-r sm:border-[#C9A24B]/20" : ""}`}
             >
-              <div className="font-display text-5xl lg:text-6xl font-bold text-white mb-2">
+              <div className="font-display text-5xl lg:text-6xl font-bold text-[#E8A33D] mb-2">
                 <CountUp
                   target={stat.numericValue}
                   suffix={stat.suffix}
@@ -101,7 +77,7 @@ export function StatsStrip() {
                   textValue={stat.value}
                 />
               </div>
-              <p className="text-white/70 text-sm font-medium uppercase tracking-widest">
+              <p className="text-white/60 text-sm font-medium uppercase tracking-widest">
                 {stat.label}
               </p>
             </motion.div>
