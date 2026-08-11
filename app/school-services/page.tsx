@@ -1,24 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  Lightbulb,
-  Calendar,
-  UserCheck,
-  Trophy,
-  Music,
-  ArrowRight,
-} from "lucide-react";
+import { Lightbulb, Calendar, UserCheck, Trophy, Music, ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { PageHero } from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: "Drama Services for Schools — Consultancy, Events & Competitions | Dramawale",
   description:
     "Dramawale partners with schools across India to offer drama consultancy, event management, certified drama teacher recruitment, and signature competitions like Nukkad Natak & Mime Festivals. NEP-aligned performing arts solutions for schools in Maharashtra and beyond.",
-  alternates: {
-    canonical: "https://www.dramawale.com/school-services",
-  },
+  alternates: { canonical: "https://www.dramawale.com/school-services" },
   keywords: ["drama consultancy for schools", "school drama events India", "Nukkad Natak competition", "drama teacher recruitment", "school performing arts programs", "NEP drama schools Maharashtra"],
   openGraph: {
     title: "Drama Services for Schools — Dramawale",
@@ -32,22 +24,19 @@ const SERVICES = [
   {
     icon: Lightbulb,
     title: "Drama Consultancy",
-    description:
-      "We work with school leadership to design or revamp drama curricula, set up dedicated drama departments, and integrate performing arts seamlessly into the school's NEP-aligned academic framework.",
+    description: "We work with school leadership to design or revamp drama curricula, set up dedicated drama departments, and integrate performing arts seamlessly into the school's NEP-aligned academic framework.",
     features: ["Curriculum design & NEP mapping", "Infrastructure advisory", "Annual drama calendar planning"],
   },
   {
     icon: Calendar,
     title: "Event Management",
-    description:
-      "End-to-end production and event management for annual day shows, inter-school festivals, cultural extravaganzas, and community theatre events — handled entirely by our team of professionals.",
+    description: "End-to-end production and event management for annual day shows, inter-school festivals, cultural extravaganzas, and community theatre events — handled entirely by our team of professionals.",
     features: ["Script writing & direction", "Set design & stage management", "Technical production support"],
   },
   {
     icon: UserCheck,
     title: "Drama Teacher Recruitment",
-    description:
-      "We connect schools with Dramawale-certified drama educators from our growing network of Certified Drama Educators (CDE). Every teacher is trained, vetted, and ready to lead.",
+    description: "We connect schools with Dramawale-certified drama educators from our growing network of Certified Drama Educators (CDE). Every teacher is trained, vetted, and ready to lead.",
     features: ["CDE-certified professionals", "Full placement support", "Ongoing mentor supervision"],
   },
 ];
@@ -56,16 +45,14 @@ const COMPETITIONS = [
   {
     icon: Trophy,
     name: "Nukkad Natak Festival",
-    description:
-      "India's most celebrated street theatre competition for school students — celebrating social awareness, community storytelling, and raw dramatic energy.",
+    description: "India's most celebrated street theatre competition for school students — celebrating social awareness, community storytelling, and raw dramatic energy.",
     format: "District → State → National",
     age: "Classes 6–12",
   },
   {
     icon: Music,
     name: "Mime & Movement Festival",
-    description:
-      "A silent stage competition celebrating physical expression, mime artistry, and non-verbal storytelling — building body language mastery in young performers.",
+    description: "A silent stage competition celebrating physical expression, mime artistry, and non-verbal storytelling — building body language mastery in young performers.",
     format: "Inter-school · Annual",
     age: "Classes 4–10",
   },
@@ -74,44 +61,29 @@ const COMPETITIONS = [
 export default function SchoolServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[#FAF6F0] to-[#F0E4D6] py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="max-w-3xl">
-            <p className="text-[#C4623A] text-sm font-semibold uppercase tracking-widest mb-3">
-              For Schools &amp; Institutions
-            </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1C1C1C] leading-tight mb-6">
-              Drama Services
-              <span className="text-[#7C1D2F] italic"> Built for Schools</span>
-            </h1>
-            <p className="text-[#4A4A4A] text-lg leading-relaxed mb-8 max-w-2xl">
-              From curriculum design to competitions, teacher placement to event
-              production — Dramawale is your complete performing arts partner.
-            </p>
-            <Button asChild size="lg">
-              <Link href="/contact" className="group">
-                Partner With Us
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </AnimatedSection>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="For Schools & Institutions"
+        headline={<>Drama Services <span className="text-[#E8A33D] italic">Built for Schools</span></>}
+        subheadline="From curriculum design to competitions, teacher placement to event production — Dramawale is your complete performing arts partner."
+        imageSrc="/school-hero.png"
+        imageAlt="Grand theatre production at Kalidasa Mahotsav — school event by Dramawale"
+        imagePosition="center top"
+      >
+        <Button asChild size="lg" className="bg-[#E8A33D] hover:bg-[#C9A24B] text-[#1F2340] font-bold rounded-full shadow-lg hover:-translate-y-0.5 transition-all">
+          <Link href="/contact" className="group">
+            Partner With Us
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </Button>
+      </PageHero>
 
       {/* Services */}
       <section className="py-20 bg-[#FAF6F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-14">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#1C1C1C] mb-4">
-              Our School Services
-            </h2>
-            <p className="text-[#4A4A4A] text-lg max-w-2xl mx-auto">
-              Comprehensive solutions for schools ready to make drama a cornerstone of
-              student life.
-            </p>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#1C1C1C] mb-4">Our School Services</h2>
+            <p className="text-[#4A4A4A] text-lg max-w-2xl mx-auto">Comprehensive solutions for schools ready to make drama a cornerstone of student life.</p>
           </AnimatedSection>
-
           <div className="grid md:grid-cols-3 gap-6">
             {SERVICES.map((service, i) => {
               const Icon = service.icon;
@@ -121,12 +93,8 @@ export default function SchoolServicesPage() {
                     <div className="w-12 h-12 rounded-xl bg-[#7C1D2F]/10 flex items-center justify-center mb-5">
                       <Icon className="w-6 h-6 text-[#7C1D2F]" />
                     </div>
-                    <h3 className="font-display text-xl font-bold text-[#1C1C1C] mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-[#4A4A4A] text-sm leading-relaxed mb-5">
-                      {service.description}
-                    </p>
+                    <h3 className="font-display text-xl font-bold text-[#1C1C1C] mb-3">{service.title}</h3>
+                    <p className="text-[#4A4A4A] text-sm leading-relaxed mb-5">{service.description}</p>
                     <ul className="space-y-2">
                       {service.features.map((f) => (
                         <li key={f} className="flex items-center gap-2 text-sm text-[#4A4A4A]">
@@ -147,14 +115,9 @@ export default function SchoolServicesPage() {
       <section className="py-20 bg-[#F0E9DF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-14">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#1C1C1C] mb-4">
-              Signature Competitions
-            </h2>
-            <p className="text-[#4A4A4A] text-lg max-w-xl mx-auto">
-              Prestigious platforms for young performers to compete, grow, and shine.
-            </p>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#1C1C1C] mb-4">Signature Competitions</h2>
+            <p className="text-[#4A4A4A] text-lg max-w-xl mx-auto">Prestigious platforms for young performers to compete, grow, and shine.</p>
           </AnimatedSection>
-
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {COMPETITIONS.map((comp, i) => {
               const Icon = comp.icon;
@@ -166,26 +129,19 @@ export default function SchoolServicesPage() {
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-display text-xl font-bold text-[#1C1C1C]">
-                          {comp.name}
-                        </h3>
+                        <h3 className="font-display text-xl font-bold text-[#1C1C1C]">{comp.name}</h3>
                         <div className="flex items-center gap-3 mt-1">
-                          <span className="text-xs text-[#C4623A] font-semibold bg-[#C4623A]/10 px-2 py-0.5 rounded-full">
-                            {comp.age}
-                          </span>
+                          <span className="text-xs text-[#C4623A] font-semibold bg-[#C4623A]/10 px-2 py-0.5 rounded-full">{comp.age}</span>
                           <span className="text-xs text-[#4A4A4A]">{comp.format}</span>
                         </div>
                       </div>
                     </div>
-                    <p className="text-[#4A4A4A] text-sm leading-relaxed">
-                      {comp.description}
-                    </p>
+                    <p className="text-[#4A4A4A] text-sm leading-relaxed">{comp.description}</p>
                   </div>
                 </AnimatedSection>
               );
             })}
           </div>
-
           <AnimatedSection delay={0.3} className="text-center mt-12">
             <Button asChild size="lg">
               <Link href="/contact" className="group">
