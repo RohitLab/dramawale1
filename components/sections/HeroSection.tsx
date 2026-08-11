@@ -66,8 +66,8 @@ export function HeroSection() {
       {/* ── Background: Kerala dance image ── */}
       <div className="absolute inset-0">
         <Image
-          src="/hero-kerala.png"
-          alt="Kerala classical dance performance — Dramawale hero"
+          src="/hero-stage.png"
+          alt="Live stage performance — Dramawale hero"
           fill
           priority
           quality={90}

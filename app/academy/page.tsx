@@ -4,6 +4,7 @@ import { CheckCircle2, ArrowRight, Star, Zap, Crown } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { PageHero } from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: "Drama & Acting Certification Courses — Dramawale Academy",
@@ -84,31 +85,26 @@ const LEVELS = [
 export default function AcademyPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[#FAF6F0] to-[#F0E4D6] py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="max-w-3xl">
-            <p className="text-[#C4623A] text-sm font-semibold uppercase tracking-widest mb-3">
-              Dramawale Academy
-            </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1C1C1C] leading-tight mb-6">
-              Certification Courses in
-              <span className="text-[#7C1D2F] italic"> Drama & Acting</span>
-            </h1>
-            <p className="text-[#4A4A4A] text-lg leading-relaxed mb-8 max-w-2xl">
-              Three progressive levels of professional drama training — designed for
-              aspiring actors, confident communicators, and passionate educators.
-              NEP-aligned and industry-recognised.
-            </p>
-            <Button asChild size="lg">
-              <Link href="/contact" className="group">
-                Enrol Now
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </AnimatedSection>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Dramawale Academy"
+        headline={
+          <>
+            Certification Courses in{" "}
+            <span className="text-[#E8A33D] italic">Drama & Acting</span>
+          </>
+        }
+        subheadline="Three progressive levels of professional drama training — designed for aspiring actors, confident communicators, and passionate educators. NEP-aligned and industry-recognised."
+        imageSrc="/academy-hero.png"
+        imageAlt="Students performing in an ensemble theatre production — Dramawale Academy"
+        imagePosition="center"
+      >
+        <Button asChild size="lg" className="bg-[#E8A33D] hover:bg-[#C9A24B] text-[#1F2340] font-bold rounded-full shadow-lg hover:-translate-y-0.5 transition-all">
+          <Link href="/contact" className="group">
+            Enrol Now
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </Button>
+      </PageHero>
 
       {/* Levels */}
       <section className="py-20 bg-[#FAF6F0]">

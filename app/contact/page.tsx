@@ -6,29 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CONTACT_INFO } from "@/lib/constants";
+import { PageHero } from "@/components/sections/PageHero";
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  message?: string;
-}
+interface FormData { name: string; email: string; phone: string; subject: string; message: string; }
+interface FormErrors { name?: string; email?: string; message?: string; }
 
 export default function ContactPage() {
-  const [form, setForm] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+  const [form, setForm] = useState<FormData>({ name: "", email: "", phone: "", subject: "", message: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -36,11 +20,8 @@ export default function ContactPage() {
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
     if (!form.name.trim()) newErrors.name = "Name is required.";
-    if (!form.email.trim()) {
-      newErrors.email = "Email is required.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      newErrors.email = "Please enter a valid email address.";
-    }
+    if (!form.email.trim()) { newErrors.email = "Email is required."; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { newErrors.email = "Please enter a valid email address."; }
     if (!form.message.trim()) newErrors.message = "Please write a message.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -50,38 +31,25 @@ export default function ContactPage() {
     e.preventDefault();
     if (!validate()) return;
     setLoading(true);
-    // Simulate a short delay
     await new Promise((r) => setTimeout(r, 1000));
     console.log("Dramawale Contact Form Submission:", form);
     setSubmitted(true);
     setLoading(false);
   };
 
-  const waLink = `https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(
-    CONTACT_INFO.whatsappMessage
-  )}`;
+  const waLink = `https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(CONTACT_INFO.whatsappMessage)}`;
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[#FAF6F0] to-[#F0E4D6] py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="max-w-2xl">
-            <p className="text-[#C4623A] text-sm font-semibold uppercase tracking-widest mb-3">
-              Let&apos;s Connect
-            </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1C1C1C] leading-tight mb-4">
-              Get in Touch
-              <span className="text-[#7C1D2F] italic"> With Us</span>
-            </h1>
-            <p className="text-[#4A4A4A] text-lg leading-relaxed">
-              Whether you&apos;re a school, a student, an educator, or a partner —
-              we&apos;d love to hear from you. Drop us a message and we&apos;ll get back
-              within 24 hours.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Let's Connect"
+        headline={<>Get in Touch <span className="text-[#E8A33D] italic">With Us</span></>}
+        subheadline="Whether you're a school, a student, an educator, or a partner — we'd love to hear from you. Drop us a message and we'll get back within 24 hours."
+        imageSrc="/contact-hero.png"
+        imageAlt="Intimate theatre rehearsal on a blue-lit stage — Dramawale contact"
+        imagePosition="center"
+        paddingClass="py-24 lg:py-28"
+      />
 
       {/* Main content */}
       <section className="py-16 bg-[#FAF6F0]">
@@ -90,25 +58,16 @@ export default function ContactPage() {
             {/* Contact info sidebar */}
             <AnimatedSection direction="left" className="lg:col-span-2">
               <div className="space-y-6">
-                {/* Info cards */}
                 <div className="bg-white rounded-2xl border border-[#E2D8CC] p-6 shadow-sm">
-                  <h3 className="font-display font-bold text-[#1C1C1C] mb-5 text-lg">
-                    Contact Information
-                  </h3>
+                  <h3 className="font-display font-bold text-[#1C1C1C] mb-5 text-lg">Contact Information</h3>
                   <div className="space-y-4">
-                    <a
-                      href={`mailto:${CONTACT_INFO.email}`}
-                      className="flex items-center gap-3 text-sm text-[#4A4A4A] hover:text-[#7C1D2F] transition-colors group"
-                    >
+                    <a href={`mailto:${CONTACT_INFO.email}`} className="flex items-center gap-3 text-sm text-[#4A4A4A] hover:text-[#7C1D2F] transition-colors group">
                       <div className="w-9 h-9 rounded-lg bg-[#7C1D2F]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#7C1D2F] transition-colors">
                         <Mail className="w-4 h-4 text-[#7C1D2F] group-hover:text-white transition-colors" />
                       </div>
                       {CONTACT_INFO.email}
                     </a>
-                    <a
-                      href={`tel:${CONTACT_INFO.phone}`}
-                      className="flex items-center gap-3 text-sm text-[#4A4A4A] hover:text-[#7C1D2F] transition-colors group"
-                    >
+                    <a href={`tel:${CONTACT_INFO.phone}`} className="flex items-center gap-3 text-sm text-[#4A4A4A] hover:text-[#7C1D2F] transition-colors group">
                       <div className="w-9 h-9 rounded-lg bg-[#7C1D2F]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#7C1D2F] transition-colors">
                         <Phone className="w-4 h-4 text-[#7C1D2F] group-hover:text-white transition-colors" />
                       </div>
@@ -123,13 +82,8 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* WhatsApp */}
-                <a
-                  href={waLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-semibold px-5 py-4 rounded-2xl transition-colors w-full"
-                >
+                <a href={waLink} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-semibold px-5 py-4 rounded-2xl transition-colors w-full">
                   <MessageCircle className="w-6 h-6" />
                   <div>
                     <div className="text-sm">Chat on WhatsApp</div>
@@ -137,12 +91,9 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                {/* Response time note */}
                 <div className="bg-[#F0E9DF] border border-[#E2D8CC] rounded-2xl p-5">
                   <p className="text-sm text-[#4A4A4A] leading-relaxed">
-                    <strong className="text-[#1C1C1C]">Response time:</strong> We aim to
-                    respond to all enquiries within 24 business hours. For urgent matters,
-                    please use WhatsApp.
+                    <strong className="text-[#1C1C1C]">Response time:</strong> We aim to respond to all enquiries within 24 business hours. For urgent matters, please use WhatsApp.
                   </p>
                 </div>
               </div>
@@ -156,13 +107,8 @@ export default function ContactPage() {
                     <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
                       <CheckCircle2 className="w-8 h-8 text-green-600" />
                     </div>
-                    <h3 className="font-display text-2xl font-bold text-[#1C1C1C] mb-2">
-                      Message Sent!
-                    </h3>
-                    <p className="text-[#4A4A4A] max-w-sm">
-                      Thank you for reaching out. Our team will get back to you within
-                      24 hours.
-                    </p>
+                    <h3 className="font-display text-2xl font-bold text-[#1C1C1C] mb-2">Message Sent!</h3>
+                    <p className="text-[#4A4A4A] max-w-sm">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
                     <button
                       onClick={() => { setSubmitted(false); setForm({ name: "", email: "", phone: "", subject: "", message: "" }); }}
                       className="mt-6 text-[#7C1D2F] text-sm font-semibold hover:underline"
@@ -172,90 +118,36 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                    <h3 className="font-display text-xl font-bold text-[#1C1C1C] mb-6">
-                      Send Us a Message
-                    </h3>
-
+                    <h3 className="font-display text-xl font-bold text-[#1C1C1C] mb-6">Send Us a Message</h3>
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">
-                          Full Name <span className="text-[#A63245]">*</span>
-                        </label>
-                        <Input
-                          id="name"
-                          placeholder="Your name"
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          className={errors.name ? "border-red-400 focus-visible:ring-red-400" : ""}
-                        />
+                        <label htmlFor="name" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">Full Name <span className="text-[#A63245]">*</span></label>
+                        <Input id="name" placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={errors.name ? "border-red-400 focus-visible:ring-red-400" : ""} />
                         {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">
-                          Email <span className="text-[#A63245]">*</span>
-                        </label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="you@example.com"
-                          value={form.email}
-                          onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          className={errors.email ? "border-red-400 focus-visible:ring-red-400" : ""}
-                        />
+                        <label htmlFor="email" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">Email <span className="text-[#A63245]">*</span></label>
+                        <Input id="email" type="email" placeholder="you@example.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={errors.email ? "border-red-400 focus-visible:ring-red-400" : ""} />
                         {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                       </div>
                     </div>
-
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">
-                          Phone Number
-                        </label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          placeholder="+91 98765 43210"
-                          value={form.phone}
-                          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        />
+                        <label htmlFor="phone" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">Phone Number</label>
+                        <Input id="phone" type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
                       </div>
                       <div>
-                        <label htmlFor="subject" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">
-                          Subject
-                        </label>
-                        <Input
-                          id="subject"
-                          placeholder="e.g. School Partnership Enquiry"
-                          value={form.subject}
-                          onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                        />
+                        <label htmlFor="subject" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">Subject</label>
+                        <Input id="subject" placeholder="e.g. School Partnership Enquiry" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} />
                       </div>
                     </div>
-
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">
-                        Message <span className="text-[#A63245]">*</span>
-                      </label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell us about your school, programme interest, or question…"
-                        rows={5}
-                        value={form.message}
-                        onChange={(e) => setForm({ ...form, message: e.target.value })}
-                        className={errors.message ? "border-red-400 focus-visible:ring-red-400" : ""}
-                      />
+                      <label htmlFor="message" className="block text-sm font-medium text-[#1C1C1C] mb-1.5">Message <span className="text-[#A63245]">*</span></label>
+                      <Textarea id="message" placeholder="Tell us about your school, programme interest, or question…" rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={errors.message ? "border-red-400 focus-visible:ring-red-400" : ""} />
                       {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                     </div>
-
                     <Button type="submit" size="lg" className="w-full group" disabled={loading}>
-                      {loading ? (
-                        "Sending…"
-                      ) : (
-                        <>
-                          Send Message
-                          <Send className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                        </>
-                      )}
+                      {loading ? "Sending…" : (<>Send Message <Send className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" /></>)}
                     </Button>
                   </form>
                 )}

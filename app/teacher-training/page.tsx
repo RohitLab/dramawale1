@@ -4,6 +4,7 @@ import { CheckCircle2, BookOpen, Users, Award, ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { PageHero } from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: "Certified Drama Educator (CDE) Programme — Teacher Training | Dramawale",
@@ -57,36 +58,31 @@ const MODULES = [
 export default function TeacherTrainingPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[#FAF6F0] to-[#F0E4D6] py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="max-w-3xl">
-            <p className="text-[#C4623A] text-sm font-semibold uppercase tracking-widest mb-3">
-              For Educators
-            </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1C1C1C] leading-tight mb-6">
-              Certified Drama
-              <span className="text-[#7C1D2F] italic"> Educator Programme</span>
-            </h1>
-            <p className="text-[#4A4A4A] text-lg leading-relaxed mb-8 max-w-2xl">
-              The CDE is India&apos;s most rigorous professional certification for drama
-              teachers — equipping educators to inspire, lead, and transform schools
-              through the performing arts.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg">
-                <Link href="/contact" className="group">
-                  Apply Now
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/academy">View Acting Courses</Link>
-              </Button>
-            </div>
-          </AnimatedSection>
+      <PageHero
+        eyebrow="For Educators"
+        headline={
+          <>
+            Certified Drama{" "}
+            <span className="text-[#E8A33D] italic">Educator Programme</span>
+          </>
+        }
+        subheadline="The CDE is India's most rigorous professional certification for drama teachers — equipping educators to inspire, lead, and transform schools through the performing arts."
+        imageSrc="/teacher-hero.png"
+        imageAlt="Theatre rehearsal with red curtain — Dramawale teacher training"
+        imagePosition="center"
+      >
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Button asChild size="lg" className="bg-[#E8A33D] hover:bg-[#C9A24B] text-[#1F2340] font-bold rounded-full shadow-lg hover:-translate-y-0.5 transition-all">
+            <Link href="/contact" className="group">
+              Apply Now
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
+          <Button asChild size="lg" className="border-2 border-white/60 text-white bg-transparent hover:bg-white/10 rounded-full backdrop-blur-sm transition-all">
+            <Link href="/academy">View Acting Courses</Link>
+          </Button>
         </div>
-      </section>
+      </PageHero>
 
       {/* Programme Overview */}
       <section className="py-20 bg-[#FAF6F0]">
