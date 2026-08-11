@@ -25,7 +25,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2.5 mb-5 group">
               <div className="relative w-10 h-10 flex-shrink-0">
                 <Image
-                  src="/logo-mask.png"
+                  src="/logo-mask-v2.png"
                   alt="Dramawale logo"
                   fill
                   className="object-contain"
