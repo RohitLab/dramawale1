@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Heart, Star, Users, BookOpen, ArrowRight, Quote } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
-import { PageHero } from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: "KATHASANG — Drama Fellowship for Underprivileged Children | Dramawale",
@@ -42,21 +41,39 @@ const TESTIMONIALS = [
 export default function KathasangPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Social Impact Initiative"
-        headline="KATHASANG"
-        subheadline={`"Katha" — story. "Sang" — together. A fellowship programme bringing the power of drama and storytelling to underprivileged and tribal children who need it most.`}
-        imageSrc="/kathasang-hero.png"
-        imageAlt="Tender performance moment on stage — KATHASANG fellowship"
-        imagePosition="center"
-      >
-        <Button asChild size="lg" className="bg-[#E8A33D] hover:bg-[#C9A24B] text-[#1F2340] font-bold rounded-full shadow-lg hover:-translate-y-0.5 transition-all">
-          <Link href="/contact" className="group">
-            Support KATHASANG
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </Button>
-      </PageHero>
+      {/* Hero */}
+      <section className="relative bg-[#1C1C1C] py-24 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#A63245]/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#C4623A]/15 rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-3xl">
+            <div className="flex items-center gap-2 mb-6">
+              <Heart className="w-5 h-5 text-[#C4623A]" />
+              <p className="text-[#C4623A] text-sm font-semibold uppercase tracking-widest">
+                Social Impact Initiative
+              </p>
+            </div>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+              KATHASANG
+            </h1>
+            <p className="text-white/70 text-xl leading-relaxed mb-8 max-w-2xl">
+              <span className="italic font-display text-[#F4C5A0]">&ldquo;Katha&rdquo;</span> &mdash; story.{" "}
+              <span className="italic font-display text-[#F4C5A0]">&ldquo;Sang&rdquo;</span> &mdash; together.
+              <br className="hidden sm:block" />
+              A fellowship programme bringing the power of drama and storytelling to
+              underprivileged and tribal children who need it most.
+            </p>
+            <Button asChild size="lg" variant="terracotta">
+              <Link href="/contact" className="group">
+                Support KATHASANG
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </AnimatedSection>
+        </div>
+      </section>
 
       {/* Mission */}
       <section className="py-20 bg-[#FAF6F0]">

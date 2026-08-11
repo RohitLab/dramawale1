@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Search, Filter } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Input } from "@/components/ui/input";
-import { PageHero } from "@/components/sections/PageHero";
 
 const CATEGORIES = ["All", "Street Theatre", "Social Drama", "Comedy", "Historical", "Mythology", "Contemporary"];
 
@@ -107,33 +106,37 @@ export default function ScriptsHubPage() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Scripts Hub"
-        headline={
-          <>
-            Drama Scripts{" "}
-            <span className="text-[#E8A33D] italic">for Every Stage</span>
-          </>
-        }
-        subheadline="A curated library of original and adapted drama scripts — written for Indian school students, suitable for competitions, annual days, and classroom performance."
-        imageSrc="/scripts-hero.png"
-        imageAlt="Multi-panel theatrical collage — Dramawale Scripts Hub"
-        imagePosition="center"
-        paddingClass="py-24 lg:py-32"
-      >
-        {/* Search + Filter inside hero */}
-        <div className="mt-2">
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-[#FAF6F0] to-[#F0E4D6] py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-3xl mb-10">
+            <p className="text-[#C4623A] text-sm font-semibold uppercase tracking-widest mb-3">
+              Scripts Hub
+            </p>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1C1C1C] leading-tight mb-4">
+              Drama Scripts
+              <span className="text-[#7C1D2F] italic"> for Every Stage</span>
+            </h1>
+            <p className="text-[#4A4A4A] text-lg leading-relaxed">
+              A curated library of original and adapted drama scripts — written for
+              Indian school students, suitable for competitions, annual days, and
+              classroom performance.
+            </p>
+          </AnimatedSection>
+
+          {/* Search + Filter */}
           <div className="flex flex-col sm:flex-row gap-4 max-w-2xl">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
-              <input
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9A9A9A]" />
+              <Input
                 placeholder="Search by title, theme, or keyword…"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/15 border border-white/25 text-white placeholder:text-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#E8A33D]/60 text-sm"
+                className="pl-10"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
           </div>
+
           {/* Category chips */}
           <div className="flex flex-wrap gap-2 mt-4">
             {CATEGORIES.map((cat) => (
@@ -142,8 +145,8 @@ export default function ScriptsHubPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
                   activeCategory === cat
-                    ? "bg-[#E8A33D] text-[#1F2340]"
-                    : "bg-white/15 border border-white/25 text-white/80 hover:bg-white/25 backdrop-blur-sm"
+                    ? "bg-[#7C1D2F] text-white"
+                    : "bg-white border border-[#E2D8CC] text-[#4A4A4A] hover:border-[#7C1D2F] hover:text-[#7C1D2F]"
                 }`}
               >
                 {cat === "All" && <Filter className="w-3 h-3" />}
@@ -152,7 +155,7 @@ export default function ScriptsHubPage() {
             ))}
           </div>
         </div>
-      </PageHero>
+      </section>
 
       {/* Script grid */}
       <section className="py-16 bg-[#FAF6F0]">

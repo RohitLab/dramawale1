@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CONTACT_INFO } from "@/lib/constants";
-import { PageHero } from "@/components/sections/PageHero";
 
 interface FormData { name: string; email: string; phone: string; subject: string; message: string; }
 interface FormErrors { name?: string; email?: string; message?: string; }
@@ -41,15 +40,25 @@ export default function ContactPage() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Let's Connect"
-        headline={<>Get in Touch <span className="text-[#E8A33D] italic">With Us</span></>}
-        subheadline="Whether you're a school, a student, an educator, or a partner — we'd love to hear from you. Drop us a message and we'll get back within 24 hours."
-        imageSrc="/contact-hero.png"
-        imageAlt="Intimate theatre rehearsal on a blue-lit stage — Dramawale contact"
-        imagePosition="center"
-        paddingClass="py-24 lg:py-28"
-      />
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-[#FAF6F0] to-[#F0E4D6] py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-2xl">
+            <p className="text-[#C4623A] text-sm font-semibold uppercase tracking-widest mb-3">
+              Let&apos;s Connect
+            </p>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1C1C1C] leading-tight mb-4">
+              Get in Touch
+              <span className="text-[#7C1D2F] italic"> With Us</span>
+            </h1>
+            <p className="text-[#4A4A4A] text-lg leading-relaxed">
+              Whether you&apos;re a school, a student, an educator, or a partner &mdash;
+              we&apos;d love to hear from you. Drop us a message and we&apos;ll get back
+              within 24 hours.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
 
       {/* Main content */}
       <section className="py-16 bg-[#FAF6F0]">
