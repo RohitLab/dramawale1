@@ -85,7 +85,7 @@ export function MissionSection() {
               size="lg"
               className="bg-[#E8A33D] hover:bg-[#C9A24B] text-[#1F2340] font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group"
             >
-              <Link href="/kathasang">
+              <Link href="/katharang">
                 Learn About Our Story
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>

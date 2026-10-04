@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "Nukkad Natak competition",
     "drama academy Maharashtra",
     "theatre for schools",
-    "KATHASANG fellowship",
+    "KATHARANG fellowship",
     "drama scripts for students",
     "drama education platform",
     "best drama school India",

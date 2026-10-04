@@ -5,17 +5,17 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "KATHASANG — Drama Fellowship for Underprivileged Children | Dramawale",
+  title: "KATHARANG — Drama Fellowship for Underprivileged Children | Dramawale",
   description:
-    "KATHASANG is Dramawale's social impact fellowship bringing theatre, storytelling, and drama to underprivileged and tribal children across India. 500+ children reached, 12 communities served, 8 states covered.",
+    "KATHARANG is Dramawale's social impact fellowship bringing theatre, storytelling, and drama to underprivileged and tribal children across India. 500+ children reached, 12 communities served, 8 states covered.",
   alternates: {
-    canonical: "https://www.dramawale.com/kathasang",
+    canonical: "https://www.dramawale.com/katharang",
   },
-  keywords: ["drama for underprivileged children", "KATHASANG fellowship", "theatre social impact India", "drama outreach program", "storytelling tribal children", "performing arts NGO India"],
+  keywords: ["drama for underprivileged children", "KATHARANG fellowship", "theatre social impact India", "drama outreach program", "storytelling tribal children", "performing arts NGO India"],
   openGraph: {
-    title: "KATHASANG — Drama Fellowship for Underprivileged Children",
+    title: "KATHARANG — Drama Fellowship for Underprivileged Children",
     description: "Bringing theatre, storytelling, and drama to underprivileged children across India. 500+ children reached in 8 states.",
-    url: "https://www.dramawale.com/kathasang",
+    url: "https://www.dramawale.com/katharang",
     type: "website",
   },
 };
@@ -30,15 +30,15 @@ const IMPACT_STATS = [
 const TESTIMONIALS = [
   {
     name: "Meena Bai",
-    role: "Mother of a KATHASANG participant, Rajasthan",
+    role: "Mother of a KATHARANG participant, Rajasthan",
     quote:
-      "My daughter used to be so shy she wouldn't look up in class. After six weeks of KATHASANG, she performed on a stage in front of hundreds of people. I cried happy tears.",
+      "My daughter used to be so shy she wouldn't look up in class. After six weeks of KATHARANG, she performed on a stage in front of hundreds of people. I cried happy tears.",
   },
   {
     name: "Rakesh Kumar",
     role: "Village Teacher, Jharkhand",
     quote:
-      "KATHASANG didn't just teach drama. It taught our children that their stories matter, their voices matter. That is education no textbook can give.",
+      "KATHARANG didn't just teach drama. It taught our children that their stories matter, their voices matter. That is education no textbook can give.",
   },
 ];
 
@@ -60,7 +60,7 @@ export default function KathasangPage() {
               </p>
             </div>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-              KATHASANG
+              KATHARANG
             </h1>
             <p className="text-white/70 text-xl leading-relaxed mb-8 max-w-2xl">
               <span className="italic font-display text-[#F4C5A0]">"Katha"</span> — story.{" "}
@@ -71,7 +71,7 @@ export default function KathasangPage() {
             </p>
             <Button asChild size="lg" variant="terracotta">
               <Link href="/contact" className="group">
-                Support KATHASANG
+                Support KATHARANG
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
@@ -90,7 +90,7 @@ export default function KathasangPage() {
               </h2>
               <p className="text-[#4A4A4A] leading-relaxed mb-4">
                 In rural communities, tribal hamlets, and urban slums across India,
-                thousands of children are denied access to the arts. KATHASANG exists
+                thousands of children are denied access to the arts. KATHARANG exists
                 to change that — one story at a time.
               </p>
               <p className="text-[#4A4A4A] leading-relaxed mb-4">
