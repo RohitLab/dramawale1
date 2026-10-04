@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, Star, Users, BookOpen, ArrowRight, Quote } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
@@ -46,7 +47,19 @@ export default function KathasangPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#1C1C1C] py-24 lg:py-32 overflow-hidden">
+      <section className="relative bg-[#1C1C1C] py-24 lg:py-32 overflow-hidden min-h-[560px]">
+        {/* Background image */}
+        <Image
+          src="/images/katharang-hero.jpg"
+          alt="Tribal children listening to dramatic storytelling with a big book"
+          fill
+          className="object-cover object-center"
+          priority
+          quality={85}
+        />
+        {/* Dark gradient overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30 pointer-events-none" />
+        {/* Extra warm glow accents */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#A63245]/20 rounded-full blur-3xl" />
           <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#C4623A]/15 rounded-full blur-3xl" />
@@ -63,8 +76,8 @@ export default function KathasangPage() {
               KATHARANG
             </h1>
             <p className="text-white/70 text-xl leading-relaxed mb-8 max-w-2xl">
-              <span className="italic font-display text-[#F4C5A0]">"Katha"</span> — story.{" "}
-              <span className="italic font-display text-[#F4C5A0]">"Sang"</span> — together.
+              <span className="italic font-display text-[#F4C5A0]">&ldquo;Katha&rdquo;</span> — story.{" "}
+              <span className="italic font-display text-[#F4C5A0]">&ldquo;Rang&rdquo;</span> — colour.
               <br className="hidden sm:block" />
               A fellowship programme bringing the power of drama and storytelling to
               underprivileged and tribal children who need it most.
@@ -78,6 +91,7 @@ export default function KathasangPage() {
           </AnimatedSection>
         </div>
       </section>
+
 
       {/* Mission */}
       <section className="py-20 bg-[#FAF6F0]">
