@@ -165,7 +165,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 2.2 }}
             className="flex items-center gap-3 mt-10 flex-wrap"
           >
-            {["NEP-Aligned", "100+ Schools", "3 Certifications"].map((badge) => (
+            {["Theatre Performance", "Competitions Participations", "3 Certifications"].map((badge) => (
               <span
                 key={badge}
                 className="text-xs font-semibold text-[#E8A33D] bg-[#E8A33D]/10 border border-[#E8A33D]/30 px-3 py-1.5 rounded-full backdrop-blur-sm"

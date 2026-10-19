@@ -6,7 +6,7 @@ export const NAV_LINKS = [
   { label: "School Services", href: "/school-services" },
   { label: "Teacher Training", href: "/teacher-training" },
   { label: "Scripts Hub", href: "/scripts-hub" },
-  { label: "KATHASANG", href: "/kathasang" },
+  { label: "KATHARANG", href: "/katharang" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -14,7 +14,7 @@ export const FOOTER_PLATFORM_LINKS = [
   { label: "Home", href: "/" },
   { label: "Academy", href: "/academy" },
   { label: "Scripts Hub", href: "/scripts-hub" },
-  { label: "KATHASANG", href: "/kathasang" },
+  { label: "KATHARANG", href: "/katharang" },
 ];
 
 export const FOOTER_PROGRAM_LINKS = [

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Dramawale — School Partnerships, Courses & Enquiries",
   description:
-    "Get in touch with Dramawale in Nashik, Maharashtra. Contact us for school drama partnerships, acting course enrolments, teacher training, KATHASANG fellowship, or custom script requests. Email: hello@dramawale.com | Phone: +91 96075 71366.",
+    "Get in touch with Dramawale in Nashik, Maharashtra. Contact us for school drama partnerships, acting course enrolments, teacher training, KATHARANG fellowship, or custom script requests. Email: hello@dramawale.com | Phone: +91 96075 71366.",
   alternates: {
     canonical: "https://www.dramawale.com/contact",
   },

@@ -35,10 +35,10 @@ const PILLARS = [
   {
     number: "04",
     icon: Heart,
-    title: "KATHASANG Social Impact",
+    title: "KATHARANG Social Impact",
     description:
       "A fellowship programme dedicated to bringing theatre and storytelling to underprivileged and tribal children, using drama as a tool for healing and empowerment.",
-    href: "/kathasang",
+    href: "/katharang",
     tag: "Social Impact",
   },
 ];
