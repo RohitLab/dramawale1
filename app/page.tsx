@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   title: "Dramawale — India's Premier Drama Education Platform",
   description:
     "Dramawale empowers students, trains educators, and transforms schools through certified drama programmes. NEP-aligned, trusted by 100+ schools across India. Academy, Teacher Training, School Services & KATHASANG fellowship — all from Nashik, Maharashtra.",
+  keywords: [
+    "dramawale",
+    "drama wale",
+    "Dramawale",
+    "dramawale.com",
+    "drama education India",
+    "theatre education platform",
+  ],
   alternates: {
     canonical: "https://www.dramawale.com",
   },
@@ -18,6 +26,14 @@ export const metadata: Metadata = {
     description: "Certified drama education for schools, students & educators across India. NEP-aligned, trusted by 100+ schools.",
     url: "https://www.dramawale.com",
     type: "website",
+    images: [
+      {
+        url: "https://www.dramawale.com/logo-mask.png",
+        width: 820,
+        height: 1024,
+        alt: "Dramawale — India's Premier Drama Education Platform",
+      },
+    ],
   },
 };
 

@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   description:
     "Dramawale empowers students, trains educators, and transforms schools through certified drama and theatre education programs. NEP-aligned, trusted by 100+ schools across India. Based in Nashik, Maharashtra.",
   keywords: [
+    "dramawale",
+    "drama wale",
+    "Dramawale",
     "drama education India",
     "theatre training Nashik",
     "school drama programs",
@@ -29,11 +32,21 @@ export const metadata: Metadata = {
     "drama scripts for students",
     "drama education platform",
     "best drama school India",
+    "dramawale.com",
   ],
   authors: [{ name: "Dramawale", url: BASE_URL }],
   creator: "Dramawale",
   publisher: "Dramawale",
   category: "Education",
+  // Icons — Google uses these for the favicon/logo in search results
+  icons: {
+    icon: [
+      { url: "/logo-mask.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/logo-mask.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/logo-mask.png",
+  },
   openGraph: {
     title: "Dramawale — India's Premier Drama Education Platform",
     description:
@@ -42,6 +55,14 @@ export const metadata: Metadata = {
     siteName: "Dramawale",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: `${BASE_URL}/logo-mask.png`,
+        width: 820,
+        height: 1024,
+        alt: "Dramawale Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -50,6 +71,7 @@ export const metadata: Metadata = {
       "Certified drama education for schools, students, and educators across India.",
     site: "@dramawale",
     creator: "@dramawale",
+    images: [`${BASE_URL}/logo-mask.png`],
   },
   robots: {
     index: true,
@@ -76,8 +98,10 @@ const organisationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Dramawale",
+  alternateName: ["dramawale", "drama wale", "Dramawale India", "Dramawale Drama Education"],
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,
+  image: `${BASE_URL}/logo-mask.png`,
   description:
     "Dramawale is India's premier drama education platform offering certified acting courses, school drama services, teacher training, and social impact programmes. NEP-aligned, based in Nashik, Maharashtra.",
   address: {
