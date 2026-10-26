@@ -129,7 +129,7 @@ export default function SchoolServicesPage() {
       </section>
 
       {/* Competitions */}
-      <section className="py-20 bg-[#F0E9DF]">
+      <section id="competitions" className="py-20 bg-[#F0E9DF]" aria-label="Signature Drama Competitions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-14">
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#1C1C1C] mb-4">Signature Competitions</h2>
@@ -167,6 +167,16 @@ export default function SchoolServicesPage() {
               </Link>
             </Button>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Internal link: teacher certification */}
+      <section className="py-10 bg-[#FAF6F0] border-t border-[#E2D8CC]" aria-label="Teacher certification pathway">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-[#4A4A4A] text-base mb-3">All our drama educators are professionally trained and certified.</p>
+          <Link href="/teacher-training" className="inline-flex items-center gap-2 text-[#7A1F2B] font-semibold hover:underline text-lg">
+            Learn about the Certified Drama Educator (CDE) Programme &rarr;
+          </Link>
         </div>
       </section>
 

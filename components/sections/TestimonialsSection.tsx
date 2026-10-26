@@ -197,9 +197,9 @@ export function TestimonialsSection() {
               {/* Header */}
               <div className="text-center mb-6">
                 <span className="text-4xl mb-3 block">🎭</span>
-                <h2 className="font-display text-2xl font-bold text-[#7A1F2B] mb-1">
+                <h3 className="font-display text-2xl font-bold text-[#7A1F2B] mb-1">
                   Apply for Drama Teacher
-                </h2>
+                </h3>
                 <p className="text-[#4A4A4A] text-sm">
                   Reach out to us directly — we&apos;d love to hear from you!
                 </p>

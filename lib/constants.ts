@@ -21,7 +21,7 @@ export const FOOTER_PROGRAM_LINKS = [
   { label: "Certification Courses", href: "/academy" },
   { label: "School Services", href: "/school-services" },
   { label: "Teacher Training", href: "/teacher-training" },
-  { label: "Drama Competitions", href: "/school-services" },
+  { label: "Drama Competitions", href: "/school-services#competitions" },
 ];
 
 export const CONTACT_INFO = {

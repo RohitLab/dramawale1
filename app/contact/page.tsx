@@ -64,8 +64,9 @@ export default function ContactPage() {
       />
 
       {/* Main content */}
-      <section className="py-16 bg-[#FAF6F0]">
+      <section className="py-16 bg-[#FAF6F0]" aria-label="Contact Dramawale">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="sr-only">Reach Out to Dramawale</h2>
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact info sidebar */}
             <AnimatedSection direction="left" className="lg:col-span-2">

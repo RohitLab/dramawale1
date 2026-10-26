@@ -163,6 +163,9 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <head>
+        {/* Google Fonts preconnect — reduces font render-blocking */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"

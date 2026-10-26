@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Search, Filter } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { PageHero } from "@/components/sections/PageHero";
@@ -74,8 +75,9 @@ export default function ScriptsHubPage() {
       </PageHero>
 
       {/* Script grid */}
-      <section className="py-16 bg-[#FAF6F0]">
+      <section className="py-16 bg-[#FAF6F0]" aria-label="Drama script library">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="sr-only">Browse Drama Scripts for Schools</h2>
           {filtered.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-[#4A4A4A] text-lg">No scripts match your search.</p>
@@ -107,9 +109,15 @@ export default function ScriptsHubPage() {
           )}
           <AnimatedSection className="text-center mt-16">
             <p className="text-[#4A4A4A] mb-4">Looking for a custom script for your school event?</p>
-            <a href="/contact" className="inline-flex items-center gap-2 bg-[#7C1D2F] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#A63245] transition-colors">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#7C1D2F] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#A63245] transition-colors">
               Request a Custom Script
-            </a>
+            </Link>
+            <p className="text-[#4A4A4A] text-sm mt-6">
+              Need end-to-end drama support for your school?{" "}
+              <Link href="/school-services" className="text-[#7C1D2F] font-semibold hover:underline">
+                See our School Drama Services &rarr;
+              </Link>
+            </p>
           </AnimatedSection>
         </div>
       </section>

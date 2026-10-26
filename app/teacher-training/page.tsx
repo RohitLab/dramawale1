@@ -205,6 +205,16 @@ export default function TeacherTrainingPage() {
         </div>
       </section>
 
+      {/* Internal link: student pathway */}
+      <section className="py-10 bg-[#FBF6EE] border-t border-[#E2D8CC]" aria-label="Student acting courses pathway">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-[#4A4A4A] text-base mb-3">Not yet a teacher? Start with our student acting courses.</p>
+          <Link href="/academy" className="inline-flex items-center gap-2 text-[#7A1F2B] font-semibold hover:underline text-lg">
+            Explore Acting Courses at the Dramawale Academy &rarr;
+          </Link>
+        </div>
+      </section>
+
       <CtaBand />
     </>
   );

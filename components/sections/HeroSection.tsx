@@ -114,10 +114,10 @@ export function HeroSection() {
             transition={{ duration: 0.75, delay: 1.75 }}
             className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.15] tracking-tight mb-6 drop-shadow-lg"
           >
-            Bringing Classrooms{" "}
-            <span className="text-[#E8A33D] italic">and Stages</span>
+            Drama Education{" "}
+            <span className="text-[#E8A33D] italic">&amp; Acting Courses</span>
             <br />
-            to Life Through Drama
+            for Schools Across India
           </motion.h1>
 
           {/* Subheadline */}

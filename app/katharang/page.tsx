@@ -219,6 +219,15 @@ export default function KatharangPage() {
           </AnimatedSection>
         </div>
       </section>
+      {/* Internal link: teacher pathway */}
+      <section className="py-10 bg-[#FBF6EE] border-t border-[#E2D8CC]" aria-label="Drama educator pathway">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-[#4A4A4A] text-base mb-3">Want to become a drama educator and create social impact?</p>
+          <Link href="/teacher-training" className="inline-flex items-center gap-2 text-[#7A1F2B] font-semibold hover:underline text-lg">
+            Become a Certified Drama Educator &rarr;
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
