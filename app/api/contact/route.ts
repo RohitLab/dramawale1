@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// NOTE: Resend is instantiated lazily inside the handler — NOT at module level.
+// Instantiating at module level causes Vercel's build-time page-data collection
+// to fail with "Missing API key" because env vars aren't available at build time.
 
 const TO_EMAIL = "hello@dramawale.com";
 const FROM_EMAIL = "contact@dramawale.com"; // must be a verified Resend sender domain
@@ -31,6 +33,9 @@ export async function POST(req: NextRequest) {
       console.log("[Contact] Submission:", { name, email, phone, subject, message });
       return NextResponse.json({ success: true });
     }
+
+    // Lazily instantiate Resend at request time (never at module/build time)
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { error } = await resend.emails.send({
       from: `Dramawale Contact Form <${FROM_EMAIL}>`,
