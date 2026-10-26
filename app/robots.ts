@@ -30,6 +30,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://www.dramawale.com/sitemap.xml",
-    host: "https://www.dramawale.com",
   };
 }

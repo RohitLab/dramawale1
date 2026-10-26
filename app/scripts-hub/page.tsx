@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Search, Filter } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { Input } from "@/components/ui/input";
 import { PageHero } from "@/components/sections/PageHero";
 
 const CATEGORIES = ["All", "Street Theatre", "Social Drama", "Comedy", "Historical", "Mythology", "Contemporary"];
@@ -38,7 +37,7 @@ export default function ScriptsHubPage() {
         eyebrow="Scripts Hub"
         headline={<>Drama Scripts <span className="text-[#E8A33D] italic">for Every Stage</span></>}
         subheadline="A curated library of original and adapted drama scripts — written for Indian school students, suitable for competitions, annual days, and classroom performance."
-        imageSrc="/scripts-hero.png"
+        imageSrc="/scripts-hero.webp"
         imageAlt="Multi-panel theatrical collage — Dramawale Scripts Hub"
         imagePosition="center"
         paddingClass="py-24 lg:py-32"

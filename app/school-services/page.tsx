@@ -17,6 +17,23 @@ export const metadata: Metadata = {
     description: "Drama consultancy, event management, teacher recruitment & competitions for schools across India.",
     url: "https://www.dramawale.com/school-services",
     type: "website",
+    images: [
+      {
+        url: "https://www.dramawale.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Drama Services for Schools — Dramawale",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: "https://www.dramawale.com/og-image.jpg",
+        alt: "Drama Services for Schools — Dramawale",
+      },
+    ],
   },
 };
 
@@ -65,7 +82,7 @@ export default function SchoolServicesPage() {
         eyebrow="For Schools & Institutions"
         headline={<>Drama Services <span className="text-[#E8A33D] italic">Built for Schools</span></>}
         subheadline="From curriculum design to competitions, teacher placement to event production — Dramawale is your complete performing arts partner."
-        imageSrc="/school-hero.png"
+        imageSrc="/school-hero.webp"
         imageAlt="Grand theatre production at Kalidasa Mahotsav — school event by Dramawale"
         imagePosition="center top"
       >

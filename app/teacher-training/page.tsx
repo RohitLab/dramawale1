@@ -6,19 +6,78 @@ import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { PageHero } from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
-  title: "Certified Drama Educator (CDE) Programme — Teacher Training | Dramawale",
+const BASE_URL = "https://www.dramawale.com";
+
+// Structured data: CDE as a professional certification course
+const cdeSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Certified Drama Educator (CDE) Programme",
   description:
-    "Become a Certified Drama Educator (CDE) with Dramawale's 6-month professional teacher training programme. India's most rigorous drama pedagogy certification — get listed on our school placement network. Based in Nashik, Maharashtra.",
-  alternates: { canonical: "https://www.dramawale.com/teacher-training" },
-  keywords: ["drama teacher training India", "Certified Drama Educator", "CDE certification", "drama pedagogy course", "theatre teacher certification Maharashtra", "drama educator placement"],
+    "India\u2019s most rigorous 6-month professional drama teacher certification. 200+ training hours covering drama pedagogy, facilitation leadership, and NEP-aligned curriculum design. Includes school placement support.",
+  provider: {
+    "@type": "EducationalOrganization",
+    name: "Dramawale",
+    sameAs: BASE_URL,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Nashik",
+      addressRegion: "Maharashtra",
+      addressCountry: "IN",
+    },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: ["onsite", "online"],
+    duration: "P6M",
+    courseWorkload: "PT200H",
+  },
+  url: `${BASE_URL}/teacher-training`,
+  educationalLevel: "Professional",
+  inLanguage: ["en", "hi"],
+  teaches: ["Drama Pedagogy", "Facilitation Leadership", "NEP-aligned Curriculum Design"],
+  occupationalCredentialAwarded: "Certified Drama Educator (CDE)",
+};
+
+export const metadata: Metadata = {
+  title: "Certified Drama Educator (CDE) Programme \u2014 Teacher Training | Dramawale",
+  description:
+    "Become a Certified Drama Educator (CDE) with Dramawale\u2019s 6-month professional teacher training programme. India\u2019s most rigorous drama pedagogy certification \u2014 get listed on our school placement network. Based in Nashik, Maharashtra.",
+  alternates: { canonical: `${BASE_URL}/teacher-training` },
+  keywords: [
+    "drama teacher training India",
+    "Certified Drama Educator",
+    "CDE certification",
+    "drama pedagogy course",
+    "theatre teacher certification Maharashtra",
+    "drama educator placement",
+  ],
   openGraph: {
-    title: "Certified Drama Educator (CDE) Programme — Dramawale",
-    description: "India's most rigorous professional drama teacher certification. 6 months, 200+ training hours, 100% placement support.",
-    url: "https://www.dramawale.com/teacher-training",
+    title: "Certified Drama Educator (CDE) Programme \u2014 Dramawale",
+    description:
+      "India\u2019s most rigorous professional drama teacher certification. 6 months, 200+ training hours, 100% placement support.",
+    url: `${BASE_URL}/teacher-training`,
     type: "website",
+    images: [
+      {
+        url: `${BASE_URL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Certified Drama Educator Programme \u2014 Dramawale Teacher Training",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: `${BASE_URL}/og-image.jpg`,
+        alt: "Certified Drama Educator Programme \u2014 Dramawale Teacher Training",
+      },
+    ],
   },
 };
+
 
 const ELIGIBILITY = [
   "Graduate in any stream (Arts preferred)",
@@ -44,11 +103,18 @@ const MODULES = [
 export default function TeacherTrainingPage() {
   return (
     <>
+      {/* CDE Course structured data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(cdeSchema) }} />
+      {/* CDE Course structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cdeSchema) }}
+      />
       <PageHero
         eyebrow="For Educators"
         headline={<>Certified Drama <span className="text-[#E8A33D] italic">Educator Programme</span></>}
         subheadline="The CDE is India's most rigorous professional certification for drama teachers — equipping educators to inspire, lead, and transform schools through the performing arts."
-        imageSrc="/teacher-hero.png"
+        imageSrc="/teacher-hero.webp"
         imageAlt="Theatre rehearsal with red curtain — Dramawale teacher training"
         imagePosition="center"
       >

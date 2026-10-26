@@ -31,10 +31,22 @@ export default function ContactPage() {
     e.preventDefault();
     if (!validate()) return;
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    console.log("Dramawale Contact Form Submission:", form);
-    setSubmitted(true);
-    setLoading(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Failed to send. Please try again.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      alert(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const waLink = `https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(CONTACT_INFO.whatsappMessage)}`;
@@ -45,7 +57,7 @@ export default function ContactPage() {
         eyebrow="Let's Connect"
         headline={<>Get in Touch <span className="text-[#E8A33D] italic">With Us</span></>}
         subheadline="Whether you're a school, a student, an educator, or a partner — we'd love to hear from you. Drop us a message and we'll get back within 24 hours."
-        imageSrc="/contact-hero.png"
+        imageSrc="/contact-hero.webp"
         imageAlt="Intimate theatre rehearsal on a blue-lit stage — Dramawale contact"
         imagePosition="center"
         paddingClass="py-24 lg:py-28"

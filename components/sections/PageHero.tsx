@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { ReactNode } from "react";
@@ -42,8 +43,8 @@ export function PageHero({
         backgroundColor: "#1C0609",
       }}
     >
-      {/* Hidden img for accessibility / SEO */}
-      <img src={imageSrc} alt={imageAlt} aria-hidden className="sr-only" />
+      {/* Hidden img for accessibility / SEO — uses next/image for optimisation */}
+      <Image src={imageSrc} alt={imageAlt} fill aria-hidden className="sr-only pointer-events-none" sizes="1px" />
 
       {/* Dark maroon overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#7A1F2B]/85 via-[#7A1F2B]/60 to-[#1F2340]/30 pointer-events-none" />

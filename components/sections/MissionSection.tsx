@@ -12,7 +12,7 @@ export function MissionSection() {
       {/* ── Kathakali dancer background ── */}
       <div className="absolute inset-0">
         <Image
-          src="/mission-kathakali.png"
+          src="/mission-kathakali.webp"
           alt="Illuminated Kathakali dancer — Dramawale mission"
           fill
           quality={85}
@@ -86,7 +86,7 @@ export function MissionSection() {
               className="bg-[#E8A33D] hover:bg-[#C9A24B] text-[#1F2340] font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group"
             >
               <Link href="/katharang">
-                Learn About Our Story
+                Learn About KATHARANG
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>

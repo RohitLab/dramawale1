@@ -6,10 +6,12 @@ import { MissionSection } from "@/components/sections/MissionSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { CtaBand } from "@/components/sections/CtaBand";
 
+const BASE_URL = "https://www.dramawale.com";
+
 export const metadata: Metadata = {
-  title: "Dramawale — India's Premier Drama Education Platform",
+  title: "Dramawale \u2014 India's Premier Drama Education Platform",
   description:
-    "Dramawale empowers students, trains educators, and transforms schools through certified drama programmes. NEP-aligned, trusted by 100+ schools across India. Academy, Teacher Training, School Services & KATHARANG fellowship — all from Nashik, Maharashtra.",
+    "Dramawale empowers students, trains educators, and transforms schools through certified drama programmes. NEP-aligned, trusted by 100+ schools across India. Academy, Teacher Training, School Services & KATHARANG fellowship \u2014 all from Nashik, Maharashtra.",
   keywords: [
     "dramawale",
     "drama wale",
@@ -19,19 +21,28 @@ export const metadata: Metadata = {
     "theatre education platform",
   ],
   alternates: {
-    canonical: "https://www.dramawale.com",
+    canonical: BASE_URL,
   },
   openGraph: {
-    title: "Dramawale — India's Premier Drama Education Platform",
+    title: "Dramawale \u2014 India's Premier Drama Education Platform",
     description: "Certified drama education for schools, students & educators across India. NEP-aligned, trusted by 100+ schools.",
-    url: "https://www.dramawale.com",
+    url: BASE_URL,
     type: "website",
     images: [
       {
-        url: "https://www.dramawale.com/logo-mask.png",
-        width: 820,
-        height: 1024,
-        alt: "Dramawale — India's Premier Drama Education Platform",
+        url: `${BASE_URL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Dramawale \u2014 India's Premier Drama Education Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: `${BASE_URL}/og-image.jpg`,
+        alt: "Dramawale \u2014 India's Premier Drama Education Platform",
       },
     ],
   },

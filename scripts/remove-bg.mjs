@@ -2,7 +2,7 @@
 // Removes near-black pixels from logo-mask.png and saves a transparent PNG
 
 import sharp from 'sharp';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
@@ -16,7 +16,7 @@ const { data, info } = await image
   .raw()
   .toBuffer({ resolveWithObject: true });
 
-const { width, height, channels } = info;   // channels === 4 (RGBA)
+const { width, height } = info;
 const buf = Buffer.from(data);
 
 // Threshold: pixels where R<40, G<40, B<40 → alpha = 0

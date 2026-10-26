@@ -8,7 +8,7 @@ const BASE_URL = "https://www.dramawale.com";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Dramawale — India's Premier Drama Education Platform",
+    default: "Dramawale \u2014 India's Premier Drama Education Platform",
     template: "%s | Dramawale",
   },
   description:
@@ -38,17 +38,17 @@ export const metadata: Metadata = {
   creator: "Dramawale",
   publisher: "Dramawale",
   category: "Education",
-  // Icons — Google uses these for the favicon/logo in search results
+  // Icons \u2014 Google uses these for the favicon/logo in search results
   icons: {
     icon: [
-      { url: "/logo-mask.png", type: "image/png", sizes: "512x512" },
+      { url: "/og-image.jpg", type: "image/png", sizes: "512x512" },
       { url: "/favicon.ico", sizes: "any" },
     ],
-    apple: [{ url: "/logo-mask.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/logo-mask.png",
+    apple: [{ url: "/og-image.jpg", sizes: "180x180", type: "image/png" }],
+    shortcut: "/og-image.jpg",
   },
   openGraph: {
-    title: "Dramawale — India's Premier Drama Education Platform",
+    title: "Dramawale \u2014 India's Premier Drama Education Platform",
     description:
       "Certified drama education for schools, students, and educators across India. NEP-aligned programmes, trusted by 100+ schools.",
     url: BASE_URL,
@@ -57,21 +57,26 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${BASE_URL}/logo-mask.png`,
-        width: 820,
-        height: 1024,
-        alt: "Dramawale Logo",
+        url: `${BASE_URL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Dramawale \u2014 India's Premier Drama Education Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dramawale — India's Premier Drama Education Platform",
+    title: "Dramawale \u2014 India's Premier Drama Education Platform",
     description:
       "Certified drama education for schools, students, and educators across India.",
     site: "@dramawale",
     creator: "@dramawale",
-    images: [`${BASE_URL}/logo-mask.png`],
+    images: [
+      {
+        url: `${BASE_URL}/og-image.jpg`,
+        alt: "Dramawale \u2014 India's Premier Drama Education Platform",
+      },
+    ],
   },
   robots: {
     index: true,
@@ -88,8 +93,7 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   verification: {
-    // Add your Google Search Console verification token here when ready
-    // google: "your-google-verification-code",
+    google: "e9a72512cbf43af9",
   },
 };
 
@@ -101,7 +105,7 @@ const organisationSchema = {
   alternateName: ["dramawale", "drama wale", "Dramawale India", "Dramawale Drama Education"],
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,
-  image: `${BASE_URL}/logo-mask.png`,
+  image: `${BASE_URL}/og-image.jpg`,
   description:
     "Dramawale is India's premier drama education platform offering certified acting courses, school drama services, teacher training, and social impact programmes. NEP-aligned, based in Nashik, Maharashtra.",
   address: {
@@ -157,7 +161,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         {/* JSON-LD Structured Data */}
         <script

@@ -18,6 +18,23 @@ export const metadata: Metadata = {
     description: "Bringing theatre, storytelling, and drama to underprivileged children across India. 500+ children reached in 8 states.",
     url: "https://www.dramawale.com/katharang",
     type: "website",
+    images: [
+      {
+        url: "https://www.dramawale.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "KATHARANG — Drama Fellowship for Underprivileged Children by Dramawale",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: "https://www.dramawale.com/og-image.jpg",
+        alt: "KATHARANG — Drama Fellowship for Underprivileged Children by Dramawale",
+      },
+    ],
   },
 };
 
@@ -43,7 +60,7 @@ const TESTIMONIALS = [
   },
 ];
 
-export default function KathasangPage() {
+export default function KatharangPage() {
   return (
     <>
       {/* Hero */}

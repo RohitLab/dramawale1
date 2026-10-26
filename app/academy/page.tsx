@@ -6,17 +6,99 @@ import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { PageHero } from "@/components/sections/PageHero";
 
+const BASE_URL = "https://www.dramawale.com";
+
+// Course structured data for the Academy page
+const courseListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Dramawale Drama Certification Courses",
+  url: `${BASE_URL}/academy`,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Course",
+        name: "Foundations of Drama",
+        description:
+          "Introduction to theatre history, voice modulation, body language, improvisation, script reading, and Nukkad Natak basics. 3-month weekend programme.",
+        provider: { "@type": "Organization", name: "Dramawale", sameAs: BASE_URL },
+        hasCourseInstance: { "@type": "CourseInstance", courseMode: ["onsite", "online"], duration: "P3M" },
+        url: `${BASE_URL}/academy`,
+        educationalLevel: "Beginner",
+        inLanguage: ["en", "hi"],
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "Course",
+        name: "Advanced Acting",
+        description:
+          "Stanislavski & method acting, emotional memory, monologue masterclasses, camera acting, and original play development. 6-month intensive programme.",
+        provider: { "@type": "Organization", name: "Dramawale", sameAs: BASE_URL },
+        hasCourseInstance: { "@type": "CourseInstance", courseMode: "onsite", duration: "P6M" },
+        url: `${BASE_URL}/academy`,
+        educationalLevel: "Intermediate",
+        inLanguage: ["en", "hi"],
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "Course",
+        name: "Actor's Siddhi",
+        description:
+          "Classical Indian theatre, directing, drama pedagogy, professional audition preparation, industry mentorship, and capstone production. 12-month blended programme.",
+        provider: { "@type": "Organization", name: "Dramawale", sameAs: BASE_URL },
+        hasCourseInstance: { "@type": "CourseInstance", courseMode: ["onsite", "online"], duration: "P12M" },
+        url: `${BASE_URL}/academy`,
+        educationalLevel: "Advanced",
+        inLanguage: ["en", "hi"],
+      },
+    },
+  ],
+};
+
 export const metadata: Metadata = {
-  title: "Drama & Acting Certification Courses — Dramawale Academy",
+  title: "Drama & Acting Certification Courses \u2014 Dramawale Academy",
   description:
-    "Join Dramawale Academy's three-tier certification programme in Nashik: Foundations of Drama (3 months), Advanced Acting (6 months), and Actor's Siddhi (12 months). NEP-aligned, industry-ready acting training for students across India.",
-  alternates: { canonical: "https://www.dramawale.com/academy" },
-  keywords: ["acting courses Nashik", "drama certification India", "theatre training Maharashtra", "NEP drama curriculum", "acting classes for students", "Dramawale Academy"],
+    "Join Dramawale Academy\u2019s three-tier certification programme in Nashik: Foundations of Drama (3 months), Advanced Acting (6 months), and Actor\u2019s Siddhi (12 months). NEP-aligned, industry-ready acting training for students across India.",
+  alternates: { canonical: `${BASE_URL}/academy` },
+  keywords: [
+    "acting courses Nashik",
+    "drama certification India",
+    "theatre training Maharashtra",
+    "NEP drama curriculum",
+    "acting classes for students",
+    "Dramawale Academy",
+  ],
   openGraph: {
-    title: "Drama & Acting Certification Courses — Dramawale Academy",
-    description: "Three-tier certified drama training: Foundations, Advanced Acting, and Actor's Siddhi. NEP-aligned, industry-ready.",
-    url: "https://www.dramawale.com/academy",
+    title: "Drama & Acting Certification Courses \u2014 Dramawale Academy",
+    description:
+      "Three-tier certified drama training: Foundations, Advanced Acting, and Actor\u2019s Siddhi. NEP-aligned, industry-ready.",
+    url: `${BASE_URL}/academy`,
     type: "website",
+    images: [
+      {
+        url: `${BASE_URL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Dramawale Academy \u2014 Drama & Acting Certification Courses",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: `${BASE_URL}/og-image.jpg`,
+        alt: "Dramawale Academy \u2014 Drama & Acting Certification Courses",
+      },
+    ],
   },
 };
 
@@ -80,11 +162,18 @@ const LEVELS = [
 export default function AcademyPage() {
   return (
     <>
+      {/* Course structured data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }} />
+      {/* Course structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }}
+      />
       <PageHero
         eyebrow="Dramawale Academy"
         headline={<>Certification Courses in <span className="text-[#E8A33D] italic">Drama & Acting</span></>}
         subheadline="Three progressive levels of professional drama training — designed for aspiring actors, confident communicators, and passionate educators. NEP-aligned and industry-recognised."
-        imageSrc="/academy-hero.png"
+        imageSrc="/academy-hero.webp"
         imageAlt="Students performing in an ensemble theatre production — Dramawale Academy"
         imagePosition="center"
       >
